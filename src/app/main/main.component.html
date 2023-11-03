@@ -1,0 +1,83 @@
+<div class="container">
+  <h2>
+    Vous ne savez pas ce que vous voulez, mais vous savez ce que vous ne voulez
+    pas... Exclusio est là !
+  </h2>
+  <h3>
+    Un simple clique et vous enlevez ce qui ne vous plait pas, Exclusio se
+    charge du reste !
+  </h3>
+  <div class="mode">
+    <button class="btn btn-primary" (click)="switchMode()">
+      Passer en mode {{exclusion ? 'Inclusion' : 'Exclusion'}}
+    </button>
+    <!-- <button (click)="testIMDB()">test Api</button> -->
+  </div>
+  <ul>
+    <li [ngClass]="{ items: displayGenres }">
+      <button (click)="displayBoxes('genresSimples')" class="btn btn-link mb-2">
+        Exclusions simples
+      </button>
+    </li>
+    <li [ngClass]="{ items: displayGenresAvance }">
+      <button (click)="displayBoxes('genresAvances')" class="btn btn-link mb-2">
+        Sous genres
+      </button>
+      <input *ngIf="displayGenresAvance" (input)="searched($event.target.value)" type="text" class="form-control" />
+    </li>
+    <li [ngClass]="{ items: displayRealisateurs }">
+      <button (click)="displayBoxes('reals')" class="btn btn-link mb-2">
+        Réalisateurs
+      </button>
+      <input *ngIf="displayRealisateurs" placeholder="Chercher un réalisateur" (input)="searched($event.target.value)"
+        type="text" class="form-control" />
+    </li>
+    <li [ngClass]="{ items: displayActeurs }">
+      <button (click)="displayBoxes('acteurs')" class="btn btn-link mb-2">
+        Acteurs
+      </button>
+      <input *ngIf="displayActeurs" placeholder="Chercher un acteur" (input)="searched($event.target.value)" type="text"
+        class="form-control" />
+    </li>
+  </ul>
+  <app-checkboxes *ngIf="displayGenres" [categorie]="'genres'"></app-checkboxes>
+  <app-checkboxes *ngIf="displayGenresAvance" [categorie]="'genresA'" [itemFound]="genreFound" [itemInput]="genreInput"></app-checkboxes>
+  <app-checkboxes *ngIf="displayRealisateurs" [items]="tenReals" [itemFound]="realFound" [itemInput]="realInput"></app-checkboxes>
+  <app-checkboxes *ngIf="displayActeurs" [items]="tenActors" [itemFound]="actorFound" [itemInput]="actorInput"></app-checkboxes>
+  <br />
+  <div *ngIf="searching">
+    <h2><strong>Votre Recherche</strong></h2>
+    <div class="row">
+      <div *ngFor="let movie of movieSearched">
+        <div class="col-sm-2" id="movie">
+          <a [routerLink]="['/movie', movie.id]"><img src="{{ movie.covPortrait }}" class="image"
+              alt="{{ movie.titre }}" /></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h1>Selection de films</h1>
+  <hr />
+  <div id="bestMoviesChecked" class="row">
+    <div *ngIf="bestMovie" id="bestMovie">
+      <a [routerLink]="['/movie', bestMovie.id]"><img src="{{ bestMovie.covPortrait }}" class="image"
+          alt="{{ bestMovie.titre }}" /></a>
+      <br />
+      {{ bestMovie.titre }}
+      <div class="block">
+        <app-star-rating [score]="bestMovie.alloGrade" [forDisplay]="true"></app-star-rating>
+      </div>
+      {{ bestMovie.year }}<br />
+      <div class="synospis">{{ bestMovie.synopsis }}</div>
+    </div>
+    <div class="caroussels">
+      <app-caroussel [firstMovie]="bestMovie" [page]="0"></app-caroussel>
+      <app-caroussel [firstMovie]="bestMovie" [page]="1"></app-caroussel>
+      <app-caroussel [firstMovie]="bestMovie" [page]="2"></app-caroussel>
+    </div>
+  </div>
+  <!-- <h1><strong>Les films</strong></h1> -->
+  <!-- <div *ngFor="let genre of genres">
+    <app-movies-by-genre [genre]="genre"></app-movies-by-genre>
+  </div> -->
+</div>

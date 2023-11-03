@@ -1,0 +1,90 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    width: 115%;
+}
+
+.slide {
+    display: flex;
+    flex-direction: row;
+}
+
+.active {
+    transform: translateX(0);
+    transition: transform 0.5s ease-in-out;
+}
+.inactive-left {
+    transform: translateX(-100vh);
+    transition: transform 0.5s ease-in-out;
+}
+
+.inactive-main {
+    transform: translateX(-100vh);
+    transition: transform 0.5s ease-in-out;
+}
+
+a {
+    font-size: 5rem;
+    color: white;
+    text-decoration: none;
+}
+
+button{
+    position: relative;
+    text-decoration: none;
+    font-size: 3em;
+    text-align: center;
+    z-index: 2;
+}
+
+span {
+    position: relative;
+    top: 1em;
+    cursor: pointer;
+    z-index: 2;
+    font-size: 3em;
+}
+
+.fa-arrow-circle-left-shadow, .fa-arrow-circle-right-shadow{
+    color: gray;
+    cursor:default;
+}
+
+section{
+    display: flex;
+    flex-direction: row;
+    margin:2px 0;
+}
+
+.col-sm-3{
+    padding:0 2px;
+}
+.col-sm-3:hover{
+    margin: 0 2px;
+    transition: 250ms all;
+    transform: scale(1.3);
+    z-index: 2;
+}
+.col-sm-3:hover .fa-chevron-down{
+    color:white;
+    position: absolute;
+    font-size: 2em;
+    top: 80%;
+    left: 75px;
+    display: block;
+}
+.col-sm-3:hover .fa-chevron-up{
+    color:white;
+    position: relative;
+    font-size: 2em;
+    top: 70%;
+    left: 75px;
+    display: block;
+}
+.fa-chevron-down {
+    display: none;
+}
+.fa-chevron-up{
+    display: none;
+}

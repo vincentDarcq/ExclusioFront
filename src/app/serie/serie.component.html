@@ -1,0 +1,33 @@
+<h1>{{ serie.titre }}</h1>
+<div class="container mt-5 card">
+  <div class="row">
+    <div class="col-sm-2">
+        <img src="{{ serie.cov }}" width=150 height=200 alt="{{ serie.titre }}"/>         	
+    </div>
+    <div class="col-sm-4">
+      <a href="{{ serie.ba }}" target = "_blank">Bande Annonce</a>         	
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="form-group">
+      <label for="genres">Genres : </label>
+      <p>{{ serie.genre }}</p>
+    </div>
+    <div class="form-group">
+      <label for="synopsis">Synopsis : </label>
+      <p>{{ serie.synopsis }}</p>
+    </div>
+    <div class="form-group">
+      <label for="realisateur">Createur : </label>
+      <p>{{ serie.creator }}</p>
+    </div>
+    <div class="form-group">
+      <label for="casting">Casting : </label>
+      <p>{{ serie.casting }}</p>
+    </div>
+    <div class="form-group">
+      <label for="année">Saisons : </label>
+      <p>{{ serie.seasons }}</p>
+    </div>
+    <a [routerLink]="['/serieForm', serie.id ]"><button class="btn btn-primary">Modifier la série</button></a>
+  </div>

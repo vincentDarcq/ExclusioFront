@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <h2 class="nav-link" style="color: white;">Exclusio</h2>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" routerLink=""><button class="btn btn-link mb-2">Films</button></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="series"><button class="btn btn-link mb-2">Series</button></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input placeholder="Chercher un film ici..." [(ngModel)]="movieSearch" type="text" class="form-control" id="inputsearch"/>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav mr-auto navbar-right">
+            <li *ngIf="!user" class="nav-item active">
+                <a class="nav-link" routerLink="login"><button class="btn btn-link mb-2">S'identifier <span class="fa fa-user"></span></button></a>
+            </li>
+            <li *ngIf="!user" class="nav-item active">
+                <a class="nav-link" routerLink="register"><button class="btn btn-link mb-2">Créer un compte</button></a>
+            </li>
+            <li *ngIf="user" class="nav-item active">
+                <a class="nav-link" routerLink="user"><button class="btn btn-link mb-2">{{ user.pseudonyme }}</button></a>
+            </li>
+            <li *ngIf="user" class="nav-item active">
+                <a class="nav-link"><button class="btn btn-link mb-2" (click)="logout()">Se déconnecter</button></a>
+            </li>
+        </ul>
+        <hr>
+    </div>
+</nav>

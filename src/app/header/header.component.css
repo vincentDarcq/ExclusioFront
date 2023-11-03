@@ -1,0 +1,36 @@
+.navbar{
+    margin: 0;
+}
+
+#inputsearch{
+    width: 200px;
+}
+
+#imgsearch{
+    width: 35px;
+    height: 35px;
+    float: left;
+}
+
+button{
+    background-color: transparent;
+    color: white;
+}
+hr{
+    position: relative;
+    color: white;
+    top: 35px;
+}
+.fa-user{
+    color: white;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+}
+
+.fa-magnifying-glass {
+    color: white;
+    margin: 5%;
+}

@@ -1,0 +1,103 @@
+.container
+{
+    color: white;
+    padding-left: 6%;
+    margin: 0px;
+}
+
+#movie
+{
+    padding: 10px;
+}
+.image
+{
+    width: 120px;
+    height: 170px;
+}
+.pegi
+{
+    width: 50px;
+    height: 50px;
+}
+
+#bestMoviesChecked
+{
+    position: relative;
+}
+
+#bestMovie
+{
+    position:relative;
+    width: 20vh;
+}
+.caroussels {
+    width: 130vh;
+}
+input[type=text]
+{
+    width: 175px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.my-custom-class .tooltip-inner 
+{
+    background-color: darkblue;
+    max-width: 300px;
+}
+ul 
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+li 
+{
+    display:inline-block;
+    vertical-align: top;
+}
+.btn-link
+{
+    color: white;
+    background-color: transparent;
+    position: relative;
+}
+.mode
+{
+    float: right;
+}
+.items
+{
+    background-color: rgba(0, 0, 0, 0.3);
+}
+h2, h3
+{
+    text-align: center;
+    margin: 0%;
+    padding: 0%;
+}
+hr
+{
+    color: white;
+}
+.checkboxrondes
+{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.synospis
+{
+    width: 100%; 
+    height: 60%; 
+    overflow-y: scroll;
+}
+h1 {
+    padding-left: 3%;
+}
+.row {
+    margin-left: 1px;
+}
+
+
+
+

@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-sm-11">
+        <div *ngIf="itemFound">
+            <input type="checkbox" (change)="selected(itemInput)">
+            <label i18n>{{ itemInput }}</label>
+        </div>
+        <div *ngFor="let item of items">
+            <div class="col-sm-3">
+                <input type="checkbox" (change)="selected(item)">
+                <label i18n>{{ item }}</label>
+            </div>	
+        </div> 
+    </div>
+    <div class="col-sm-1">
+        <img class="corbeille" (click)="showItemsExclus()" src="../../assets/poubelle.png">
+    </div>  
+</div>
+<div id="itemsExclus" class="row">
+    <div *ngFor="let item of itemSelected">
+      <div class="col-sm-4">
+        <input type="checkbox" (change)="restored(item)">
+        <label i18n>{{ item }} : </label>
+      </div>	
+    </div>
+    <button (click)="hideItemsExclus()" class="closePopup" i18n>Fermer</button>
+</div>

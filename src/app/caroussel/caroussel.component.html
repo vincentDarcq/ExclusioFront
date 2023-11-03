@@ -1,0 +1,19 @@
+<div class="container">
+    <span (click)="prevSection()" [ngClass]="{'fa-arrow-circle-left-shadow': page === page % 3}"
+        class="fa fa-arrow-circle-left"></span>
+        <div class="slide" [@slideAnimation]="sectionState">
+            <section class="section" *ngFor="let movie of movies" [@slideAnimation]="sectionState">
+                <div class='col-sm-3'>
+                    <a [routerLink]="['/movie', movie.id ]"><img src="{{ movie.covPortrait }}" class="image"
+                        alt="{{ movie.titre }}" /></a>
+                    <span class="fa fa-chevron-down" (click)="showDetails(movie)" *ngIf="!show"></span>
+                    <span class="fa fa-chevron-up" (click)="hideDetails()" *ngIf="show"></span>
+                </div>
+                <app-infobulle [movie]="movie" *ngIf="item === movie"></app-infobulle>
+            </section>
+        </div>
+    <span (click)="nextSection()"
+        [ngClass]="{'fa-arrow-circle-right-shadow': page === finalPage}"
+        class="fa fa-arrow-circle-right"></span>
+</div>
+
